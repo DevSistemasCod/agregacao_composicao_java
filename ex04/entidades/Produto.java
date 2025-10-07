@@ -1,46 +1,24 @@
 package entidades;
 
 public class Produto {
-    private int identificacao;
     private String nome;
-    private String descricao;
+    private float preco;
+    private int quantidade;
+    private int identificacao;
 
-    public Produto(int identificacao, String nome, String descricao) {
-        this.identificacao = identificacao;
+
+    public Produto(String nome, float preco, int quantidade, int identificacao) {
         this.nome = nome;
-        this.descricao = descricao;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.identificacao = identificacao;
     }
-
+    
     public int getIdentificacao() {
         return identificacao;
     }
-
-    public void setIdentificacao(int identificacao) {
-        this.identificacao = identificacao;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    @Override
+	
     public String toString() {
-        return "Produto[" +
-                "identificacao: " + identificacao +
-                ", nome: '" + nome + '\'' +
-                ", descricao: '" + descricao + '\'' +
-                ']';
+        return "Produto [identificacao=" + identificacao + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade + "]";
     }
 }

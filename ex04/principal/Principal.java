@@ -1,17 +1,37 @@
 package principal;
 
 import entidades.Produto;
-import entidades.ItemDeLinha;
+import entidades.Estoque;
 
 public class Principal {
      public static void main(String[] args) {
-    	 Produto produto1 = new Produto(1, "Arroz", "Grãos Prato Fino");
-         Produto produto2 = new Produto(2, "Leite", "Integral tipo 2");
-
-         ItemDeLinha item1 = new ItemDeLinha(1, 10, produto1);
-         ItemDeLinha item2 = new ItemDeLinha(2, 5, produto2);
-
-         System.out.println(item1);
-         System.out.println(item2);
-     }
+        // Cria produtos
+        Produto p1 = new Produto("Caneta", 2.5f, 100, 1);
+        Produto p2 = new Produto("Caderno", 10.0f, 50, 2);
+        Produto p3 = new Produto("Lápis", 1.5f, 200, 3);
+        
+        // Gera um array de produtos e adiciona os produtos criados
+        Produto[] produtos = {p1, p2, p3};
+        
+        // Cria o estoque a partir do array de produtos
+        Estoque estoque = new Estoque(produtos);
+        
+        // Adiciona um novo produto ao estoque
+        Produto produto4 = new Produto("Borracha", 0.5f, 150, 4);
+        estoque.adicionarProduto(produto4);
+        
+        // Exibe a lista de todos os produtos do estoque
+        estoque.listarProdutos();
+        
+        // Busca um produto pelo número de identificação
+        Produto produtoBuscado = estoque.buscarProduto(2);
+        System.out.println("Produto encontrado: " + produtoBuscado);
+        
+        // Remove um produto do estoque pelo número de identificação 
+        estoque.removerProduto(2);
+        
+        // Exibe novamente a lista de todos os produtos do estoque após a remoção
+        estoque.listarProdutos();
+    }
+        
 }
